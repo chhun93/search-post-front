@@ -9,11 +9,12 @@ const Search = ({ searchHandleChange, searchHandleSubmit }) => {
             운송장번호
           </span>
           <input
-            type="text"
+            type="number"
             className="form-control"
             placeholder="0123456789"
             aria-describedby="inputGroup-sizing-lg"
             onChange={searchHandleChange}
+            pattern="\d*"
           />
           <button
             className="btn btn-outline-success"
@@ -29,4 +30,3 @@ const Search = ({ searchHandleChange, searchHandleSubmit }) => {
 };
 
 export default Search;
-
