@@ -14,7 +14,7 @@ const Search = ({ searchHandleChange, searchHandleSubmit }) => {
             placeholder="0123456789"
             aria-describedby="inputGroup-sizing-lg"
             onChange={searchHandleChange}
-            pattern="\d*"
+            //pattern="^[0-9]+$"
           />
           <button
             className="btn btn-outline-success"
@@ -30,3 +30,4 @@ const Search = ({ searchHandleChange, searchHandleSubmit }) => {
 };
 
 export default Search;
+

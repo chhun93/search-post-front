@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import Search from "./Search";
 import ItemList from "./ItemList";
 
-const Body = () => {
+function Body() {
   const [deliveryNo, setDeliveryNo] = useState("");
+  const [deliveryItem, setDeliveryItem] = useState("");
 
   const searchHandleChange = (e) => {
     setDeliveryNo(e.target.value);
@@ -11,15 +12,18 @@ const Body = () => {
 
   const searchHandleSubmit = (e) => {
     e.preventDefault();
+    console.log(e);
     if (deliveryNo && 0 < String(deliveryNo).length) {
       console.log(deliveryNo);
-      fetch(`http://localhost:3030/lists/${deliveryNo}`)
+      fetch(`/lists/${deliveryNo}`)
         .then((res) => {
-          if (res.ok) return res.json();
+          if (res.ok) {
+            return res.json();
+          }
         })
-        .then((res) => {
-          console.log("받은 데이터 : ");
-          console.log(res);
+        .then((data) => {
+          console.log("받은 데이터 : ", data);
+          return setDeliveryItem(data);
         });
     }
   };
@@ -30,14 +34,10 @@ const Body = () => {
         searchHandleSubmit={searchHandleSubmit}
         searchHandleChange={searchHandleChange}
       />
-      <ItemList
-        arr={[
-          { key: "0", id: "cu", state: "READY" },
-          { key: "1", id: "우체국", state: "READY" },
-        ]}
-      />
+      <ItemList arr={deliveryItem} />
     </div>
   );
-};
+}
 
 export default Body;
+
