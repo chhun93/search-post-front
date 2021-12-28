@@ -1,11 +1,7 @@
 import React from "react";
 
 const Nothing = () => {
-  return (
-    <div>
-        <h1>NOTHING</h1>
-    </div>
-    );
+  return <h1>NOTHING</h1>;
 };
 
 export default Nothing;

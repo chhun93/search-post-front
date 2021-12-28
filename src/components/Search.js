@@ -1,20 +1,17 @@
 import React from "react";
 
-const Search = ({ searchHandleChange, searchHandleSubmit }) => {
+const Search = ({ searchHandleSubmit }) => {
   return (
     <div className="search">
       <form className="searchBox" onSubmit={searchHandleSubmit}>
         <div className="input-group input-group-lg">
           <span className="input-group-text" id="inputGroup-sizing-lg">
-            운송장번호
+            num
           </span>
           <input
             type="number"
             className="form-control"
             placeholder="0123456789"
-            aria-describedby="inputGroup-sizing-lg"
-            onChange={searchHandleChange}
-            //pattern="^[0-9]+$"
           />
           <button
             className="btn btn-outline-success"

@@ -3,18 +3,13 @@ import Search from "./Search";
 import ItemList from "./ItemList";
 
 function Body() {
-  const [deliveryNo, setDeliveryNo] = useState("");
   const [deliveryItem, setDeliveryItem] = useState("");
-
-  const searchHandleChange = (e) => {
-    setDeliveryNo(e.target.value);
-  };
 
   const searchHandleSubmit = (e) => {
     e.preventDefault();
-    console.log(e);
+
+    var deliveryNo = e.target[0].value;
     if (deliveryNo && 0 < String(deliveryNo).length) {
-      console.log(deliveryNo);
       fetch(`/lists/${deliveryNo}`)
         .then((res) => {
           if (res.ok) {
@@ -22,18 +17,17 @@ function Body() {
           }
         })
         .then((data) => {
-          console.log("받은 데이터 : ", data);
           return setDeliveryItem(data);
+        })
+        .catch((err) => {
+          alert("ERROR", err);
         });
     }
   };
 
   return (
     <div>
-      <Search
-        searchHandleSubmit={searchHandleSubmit}
-        searchHandleChange={searchHandleChange}
-      />
+      <Search searchHandleSubmit={searchHandleSubmit} />
       <ItemList arr={deliveryItem} />
     </div>
   );
