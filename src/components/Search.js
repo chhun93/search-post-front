@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/Search.css";
 
 const Search = ({ searchHandleSubmit }) => {
   return (
@@ -6,12 +7,12 @@ const Search = ({ searchHandleSubmit }) => {
       <form className="searchBox" onSubmit={searchHandleSubmit}>
         <div className="input-group input-group-lg">
           <span className="input-group-text" id="inputGroup-sizing-lg">
-            num
+            운송장 번호
           </span>
           <input
             type="number"
             className="form-control"
-            placeholder="0123456789"
+            placeholder="-를 제외한 숫자만 입력"
           />
           <button
             className="btn btn-outline-success"

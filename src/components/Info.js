@@ -1,20 +1,17 @@
 import React from "react";
 
 const Info = (props) => {
-  var info = props.info;
+  var info = props.info.state;
   return (
-    <div>
-      <p>
-        {info.state}
-        <br />
-      </p>
-      <table class="container">
-        <div class="row">
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-          <div class="col">Column</div>
-        </div>
-      </table>
+    <div className="row">
+      <div className="col">{info.substr(0, info.indexOf(" "))}</div>
+      <div className="col">
+        {info.substr(
+          info.indexOf(" ") + 1,
+          info.indexOf("-") - info.indexOf(" ") - 1
+        )}
+      </div>
+      <div className="col">{info.substr(info.indexOf("-") + 1)}</div>
     </div>
   );
 };

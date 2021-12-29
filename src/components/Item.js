@@ -41,9 +41,16 @@ const Item = (props) => {
         data-bs-parent="#accordionFlushExample"
       >
         <div className="accordion-body"></div>
-        {deliveryInfoArr.map((info) => (
-          <Info info={info} key={info.idx} />
-        ))}
+        <div className="container">
+          <div className="row">
+            <div className="col"></div>
+            <div className="col">시간</div>
+            <div className="col">상태</div>
+          </div>
+          {deliveryInfoArr.map((info) => (
+            <Info info={info} key={info.idx} />
+          ))}
+        </div>
       </div>
     </div>
   );

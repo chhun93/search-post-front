@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../styles/Body.scss"
 import Search from "./Search";
 import ItemList from "./ItemList";
 
@@ -26,7 +27,7 @@ function Body() {
   };
 
   return (
-    <div>
+    <div className="body">
       <Search searchHandleSubmit={searchHandleSubmit} />
       <ItemList arr={deliveryItem} />
     </div>
