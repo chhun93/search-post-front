@@ -11,7 +11,7 @@ function Body() {
 
     var deliveryNo = e.target[0].value;
     if (deliveryNo && 0 < String(deliveryNo).length) {
-      fetch(`/lists/${deliveryNo}`)
+      fetch(`http://localhost:3030/lists/${deliveryNo}`)
         .then((res) => {
           if (res.ok) {
             return res.json();
@@ -21,7 +21,7 @@ function Body() {
           return setDeliveryItem(data);
         })
         .catch((err) => {
-          alert("ERROR", err);
+          alert(err);
         });
     }
   };
