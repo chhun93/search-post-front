@@ -11,7 +11,7 @@ function Body() {
 
     var deliveryNo = e.target[0].value;
     if (deliveryNo && 0 < String(deliveryNo).length) {
-      fetch(`http://localhost:3030/lists/${deliveryNo}`)
+      fetch(`http://search-post.herokuapp.com/api/v1/post-man?tracking-number=${deliveryNo}`)
         .then((res) => {
           if (res.ok) {
             return res.json();
