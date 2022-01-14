@@ -4,7 +4,7 @@ import Item from "./Item";
 
 const ItemList = ({ arr }) => {
   if (typeof arr !== "object") return <Nothing />;
-
+  console.log(arr);
   return (
     <div
       className="itemlist accordion accordion-flush"
